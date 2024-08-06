@@ -9,17 +9,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role']!= 'hr_manager') {
     exit();
 }
 
-function getDatabaseConnection() {
-    $conn = mysqli_connect("localhost", "gbenartey19", "Junior_18", "project_hrm");
-
-    if (!$conn) {
-        die("Connection failed: ". mysqli_connect_error());
-    }
-
-    return $conn;
-}
-
-$conn = getDatabaseConnection();
+include "../db.php";
 
 // Get total number of employees
 $employee_query = "SELECT COUNT(*) as total_employees FROM employee";

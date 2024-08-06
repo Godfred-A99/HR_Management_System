@@ -9,17 +9,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_role']!= 'department_manager
     exit();
 }
 
-function getDatabaseConnection() {
-    $conn = mysqli_connect("localhost", "gbenartey19", "Junior_18", "project_hrm");
+include "../db.php";
 
-    if (!$conn) {
-        die("Connection failed: ". mysqli_connect_error());
-    }
-
-    return $conn;
-}
-
-$conn = getDatabaseConnection();
 // Set department ID based on user's role or ID
 $departmentId = 0;
 
